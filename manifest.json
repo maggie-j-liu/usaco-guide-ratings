@@ -1,0 +1,40 @@
+{
+    "name": "Getting Started Example",
+    "description": "Build an Extension!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+          "matches": ["https://usaco.guide/*"],
+          "js": [
+            "content/getQualityColor.js",
+            "content/getRatingIconColor.js",
+            "content/showData.js",
+            "content/shuffle.js",
+            "content/contentScript.js"
+          ],
+          "css": ["tailwind.css"]
+        },
+        {
+          "matches": ["https://usaco.guide/*"],
+          "js": [
+            "settings/toggleSwitch.js",
+            "settings/settingsHandlers.js",
+            "settings/settingsUi.js",
+            "settings/settingsPage.js"
+          ],
+          "css": ["tailwind.css"]
+        }
+    ],
+    "background": {
+      "service_worker": "backgroundScript.js"
+    },
+    "permissions": [
+      "storage",
+      "alarms",
+      "notifications"
+    ],
+    "host_permissions": [
+      "https://codetiger.me/project/usaco/backend/data.php"
+    ]
+}
