@@ -1,6 +1,5 @@
 const shuffleRows = () => {
   const tables = document.querySelectorAll("table.text-gray-500 tbody");
-  //console.log(tables);
   for (const table of tables) {
     const rows = table.querySelectorAll("tr");
     //console.log(Array.from(rows));
@@ -9,7 +8,6 @@ const shuffleRows = () => {
     if (hasSuggestButton) {
       rowArray.pop();
     }
-    //console.log(rowArray);
     for (let i = rowArray.length - 1; i >= 0; i--) {
       table.deleteRow(0);
       let j = Math.floor(Math.random() * (i + 1));

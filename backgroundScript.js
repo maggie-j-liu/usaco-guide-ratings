@@ -43,11 +43,6 @@ const saveData = (data) => {
   }
 };
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  fetchData().then((data) => sendResponse(data));
-  return true;
-});
-
 chrome.runtime.onInstalled.addListener(() => {
   console.log("installed");
   //set up alarm

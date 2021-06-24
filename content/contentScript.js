@@ -1,27 +1,20 @@
-const getData = async () => {
-  chrome.runtime.sendMessage(null, (data) => console.log(data));
-  //console.log(response);
-};
-
 const extensionScript = () => {
-  console.log("running");
+  //console.log("running");
   let prev = "";
-  //getData();
-  setInterval(() => {
+  setInterval(async () => {
     const path = window.location.href.split("?")[0];
     if (path == prev) {
       return;
     }
     prev = path;
 
-    chrome.storage.local.get("shuffle", ({ shuffle }) => {
-      console.log(shuffle);
+    await showData(); // needs to be first or will overwrite shuffle
+    chrome.storage.local.get("shuffle", async ({ shuffle }) => {
+      //console.log(shuffle);
       if (shuffle) {
         shuffleRows();
       }
     });
-
-    showData();
   }, 500);
 };
 
