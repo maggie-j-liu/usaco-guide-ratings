@@ -1,6 +1,5 @@
 {
-    "name": "Getting Started Example",
-    "description": "Build an Extension!",
+    "name": "",
     "version": "1.0",
     "manifest_version": 3,
     "content_scripts": [
