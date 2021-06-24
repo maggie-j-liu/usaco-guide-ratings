@@ -56,7 +56,8 @@ const showData = async () => {
           foundRating = true;
         }
         if (result[usacoId][qualAvgOrMed] !== null) {
-          quality = Math.round(parseFloat(result[usacoId][qualAvgOrMed]));
+          quality = parseFloat(result[usacoId][qualAvgOrMed]);
+          quality = Math.round(quality * 10) / 10;
           foundQuality = true;
         }
       }
@@ -83,7 +84,7 @@ const showData = async () => {
       if (foundQuality) {
         const qualityCell = rowArray[i].insertCell(5);
         const qualityCellWrapper = document.createElement('div');
-        qualityCellWrapper.className = "flex items-center gap-2";
+        qualityCellWrapper.className = "flex items-center justify-between w-12";
         qualityCell.className =
           "pl-4 py-4 whitespace-nowrap text-sm leading-5 font-medium";
         if (qualityNum[i] !== null) {

@@ -663,6 +663,10 @@ video {
   width: 1rem;
 }
 
+.w-12 {
+  width: 3rem;
+}
+
 .w-11 {
   width: 2.75rem;
 }
