@@ -25,8 +25,10 @@ const extensionScript = () => {
   }, 500);
 };
 
+/*
 const runAfterTimeOut = () => {
   setTimeout(extensionScript, 100);
 };
+*/
 
-window.addEventListener("load", runAfterTimeOut);
+window.addEventListener("load", extensionScript);

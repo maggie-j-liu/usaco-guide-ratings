@@ -82,11 +82,16 @@ const showData = async () => {
       }
       if (foundQuality) {
         const qualityCell = rowArray[i].insertCell(5);
+        const qualityCellWrapper = document.createElement('div');
+        qualityCellWrapper.className = "flex items-center gap-2";
         qualityCell.className =
           "pl-4 py-4 whitespace-nowrap text-sm leading-5 font-medium";
         if (qualityNum[i] !== null) {
-          qualityCell.className += ` ${getQualityColor(qualityNum[i])}`;
-          qualityCell.appendChild(document.createTextNode(qualityNum[i]));
+          const icon = getQualityIconColor(qualityNum[i]);
+          qualityCellWrapper.appendChild(document.createTextNode(qualityNum[i]));
+          qualityCellWrapper.appendChild(icon.icon);
+          qualityCellWrapper.className += ` ${icon.colorClass}`;
+          qualityCell.appendChild(qualityCellWrapper);
         }
       }
     }

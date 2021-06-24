@@ -17,9 +17,11 @@ const settingsScript = () => {
         settingsHandlers();
     }, 1000);
 };
-  
+
+/*
 const runAfter = () => {
     setTimeout(settingsScript, 100);
 };
+*/
 
-window.addEventListener("load", runAfter);
+window.addEventListener("load", settingsScript);

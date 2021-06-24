@@ -7,8 +7,8 @@
         {
           "matches": ["https://usaco.guide/*"],
           "js": [
-            "content/getQualityColor.js",
             "content/getRatingIconColor.js",
+            "content/getQualityIconColor.js",
             "content/showData.js",
             "content/shuffle.js",
             "content/contentScript.js"
