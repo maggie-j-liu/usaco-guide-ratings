@@ -66,12 +66,14 @@ chrome.runtime.onInstalled.addListener(() => {
 
 chrome.alarms.onAlarm.addListener(async (alarm) => {
   console.log('alarm', alarm.name);
+  /*
   chrome.notifications.create(null, {
     iconUrl: "icon.png",
     title: "Refetching Data...",
     message: "Refetching the newest data",
     type: "basic"
   })
+  */
   const req = await fetch(fetchUrl, fetchOptions);
   const data = await req.json();
   console.log(data);
