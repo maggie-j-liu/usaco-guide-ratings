@@ -1,5 +1,5 @@
 {
-    "name": "",
+    "name": "USACO Rating + Guide Integration",
     "version": "1.0",
     "manifest_version": 3,
     "content_scripts": [
@@ -30,8 +30,7 @@
     },
     "permissions": [
       "storage",
-      "alarms",
-      "notifications"
+      "alarms"
     ],
     "host_permissions": [
       "https://codetiger.me/project/usaco/backend/data.php"
