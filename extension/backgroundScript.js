@@ -52,7 +52,7 @@ chrome.runtime.onInstalled.addListener(() => {
     periodInMinutes: 120
   });
   //set defaults
-  chrome.storage.local.get(["avgmed", "shuffle"], ({ avgmed, shuffle }) => {
+  chrome.storage.local.get(["avgmed", "shuffle", "hidden"], ({ avgmed, shuffle, hidden }) => {
     //console.log(avgmed);
     if (avgmed === undefined) {
       chrome.storage.local.set({ avgmed: "avg" });
@@ -60,6 +60,9 @@ chrome.runtime.onInstalled.addListener(() => {
     if (shuffle === undefined) {
       //console.log('[background]', 'shuffle', shuffle)
       chrome.storage.local.set({ shuffle: false });
+    }
+    if (hidden === undefined) {
+      chrome.storage.local.set({ hidden: false });
     }
   });
 });

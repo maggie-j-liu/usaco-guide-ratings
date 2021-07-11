@@ -21,6 +21,25 @@ const settingsHandlers = () => {
         chrome.storage.local.set({ shuffle: !on });
     });
 
+    const onOff = document.getElementById('onOffSwitch');
+    chrome.storage.local.get("hidden", ({ hidden }) => {
+        if (hidden) {
+            toggleOn(onOff);
+        } else {
+            toggleOff(onOff);
+        }
+    })
+    onOff.addEventListener('click', () => {
+        const on = onOff.ariaChecked === "true" ? true : false;
+        //console.log('on', on);
+        if (on) {
+            toggleOff(onOff);
+        } else {
+            toggleOn(onOff);
+        }
+        chrome.storage.local.set({ hidden: !on });
+    })
+
     chrome.storage.local.get("avgmed", ({ avgmed }) => {
         if (!avgmed) return;
         //console.log(avgmed);

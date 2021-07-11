@@ -19,6 +19,23 @@ const initUi = () => {
     shuffle.appendChild(shuffleText);
     shuffle.appendChild(shuffleCheckSlider);
     optionsList.appendChild(shuffle);
+
+    const turnOff = document.createElement('li');
+    const turnOffText = document.createElement('p');
+    const turnOffSlider = document.createElement('button');
+    const turnOffSwitch = document.createElement('span');
+    turnOffSlider.role = 'switch';
+    turnOffSlider.tabIndex = 0;
+    turnOffSwitch.ariaHidden = 'true';
+    turnOffSlider.id = 'onOffSwitch';
+    turnOffSlider.appendChild(turnOffSwitch);
+    toggleOff(turnOffSlider);
+    turnOff.className = "py-4 flex items-center justify-between";
+    turnOffText.className = "text-sm font-medium text-gray-500 dark:text-gray-300";
+    turnOffText.appendChild(document.createTextNode("Hide Ratings and Quality"));
+    turnOff.appendChild(turnOffText);
+    turnOff.appendChild(turnOffSlider);
+    optionsList.appendChild(turnOff);
     
     const avgMed = document.createElement('li');
     avgMed.className = "py-4";

@@ -7,10 +7,11 @@ const extensionScript = () => {
       return;
     }
     prev = path;
-
-    await showData(); // needs to be first or will overwrite shuffle
-    chrome.storage.local.get("shuffle", async ({ shuffle }) => {
-      //console.log(shuffle);
+    
+    chrome.storage.local.get(["hidden", "shuffle"], async ({ hidden, shuffle }) => {
+      if (!hidden) {
+        await showData(); // needs to be first or will overwrite shuffle
+      }
       if (shuffle) {
         shuffleRows();
       }
