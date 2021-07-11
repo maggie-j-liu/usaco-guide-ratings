@@ -2,7 +2,7 @@ const settingsHandlers = () => {
     const checkbox = document.getElementById("shuffleCheckbox");
 
     chrome.storage.local.get("shuffle", ({ shuffle }) => {
-        console.log("initialstate", shuffle);
+        //console.log("initialstate", shuffle);
         if (shuffle) {
             toggleOn(checkbox);
         } else {
@@ -12,7 +12,7 @@ const settingsHandlers = () => {
 
     checkbox.addEventListener("click", () => {
         const on = checkbox.ariaChecked === "true" ? true : false;
-        console.log('on', on);
+        //console.log('on', on);
         if (on) {
             toggleOff(checkbox);
         } else {
@@ -23,9 +23,9 @@ const settingsHandlers = () => {
 
     chrome.storage.local.get("avgmed", ({ avgmed }) => {
         if (!avgmed) return;
-        console.log(avgmed);
+        //console.log(avgmed);
         const picked = document.getElementById(avgmed);
-        console.log(picked);
+        //console.log(picked);
         picked.checked = true;
     });
 

@@ -1,5 +1,5 @@
 const initUi = () => {
-    console.log('settings')
+    //console.log('settings')
     const optionsList = document.querySelector('div > div > div > ul');
     const shuffle = document.createElement('li');
     const shuffleText = document.createElement('p');

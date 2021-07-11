@@ -44,7 +44,7 @@ const saveData = (data) => {
 };
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log("installed");
+  //console.log("installed");
   //set up alarm
   chrome.alarms.create("getData", {
     //when: Date.now() + 60 * 1000,
@@ -53,29 +53,21 @@ chrome.runtime.onInstalled.addListener(() => {
   });
   //set defaults
   chrome.storage.local.get(["avgmed", "shuffle"], ({ avgmed, shuffle }) => {
-    console.log(avgmed);
+    //console.log(avgmed);
     if (avgmed === undefined) {
       chrome.storage.local.set({ avgmed: "avg" });
     }
     if (shuffle === undefined) {
-      console.log('[background]', 'shuffle', shuffle)
+      //console.log('[background]', 'shuffle', shuffle)
       chrome.storage.local.set({ shuffle: false });
     }
   });
 });
 
 chrome.alarms.onAlarm.addListener(async (alarm) => {
-  console.log('alarm', alarm.name);
-  /*
-  chrome.notifications.create(null, {
-    iconUrl: "icon.png",
-    title: "Refetching Data...",
-    message: "Refetching the newest data",
-    type: "basic"
-  })
-  */
+  //console.log('alarm', alarm.name);
   const req = await fetch(fetchUrl, fetchOptions);
   const data = await req.json();
-  console.log(data);
+  //console.log(data);
   saveData(data);
 });

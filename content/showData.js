@@ -45,7 +45,7 @@ const showData = async () => {
       }
       const usacoId = id.match(/[0-9]+$/)[0];
       const result = await get([usacoId, "avgmed"]);
-      console.log(result);
+      //console.log(result);
       let rating = null,
         quality = null;
       const rateAvgOrMed = result.avgmed === "med" ? "rateMed" : "rateAvg";
