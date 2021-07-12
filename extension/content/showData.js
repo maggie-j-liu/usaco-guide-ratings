@@ -1,4 +1,4 @@
-const editHead = (table, addRating, addQuality) => {
+const editHead = (table, addRating, addQuality, insertPos) => {
   const head = table.querySelector("thead");
   const headRow = head.querySelector("tr");
   const otherHeaders = headRow.querySelectorAll("th");
@@ -7,7 +7,7 @@ const editHead = (table, addRating, addQuality) => {
     ratingHead.className =
       "pl-4 py-3 text-left text-xs leading-4 font-medium uppercase tracking-wider";
     ratingHead.appendChild(document.createTextNode("Rating"));
-    headRow.insertBefore(ratingHead, otherHeaders[4]);
+    headRow.insertBefore(ratingHead, otherHeaders[insertPos]);
   }
   if (addQuality) {
     const qualityHead = document.createElement("th");
@@ -15,7 +15,7 @@ const editHead = (table, addRating, addQuality) => {
       "pl-4 py-3 text-left text-xs leading-4 font-medium uppercase tracking-wider";
     qualityHead.appendChild(document.createTextNode("Qual"));
     qualityHead.setAttribute("title", "Quality");
-    headRow.insertBefore(qualityHead, otherHeaders[4]);
+    headRow.insertBefore(qualityHead, otherHeaders[insertPos]);
   }
 };
 
@@ -64,11 +64,17 @@ const showData = async () => {
       qualityNum.push(quality);
       ratingNum.push(rating);
     }
-    editHead(wholeTable, foundRating, foundQuality);
+    let insertPos;
+    if (rowArray[0].cells.length === 6) {
+      insertPos = 4;
+    } else { // if difficulty and tags are hidden
+      insertPos = 3;
+    }
+    editHead(wholeTable, foundRating, foundQuality, insertPos);
     for (let i = 0; i < rowArray.length; i++) {
       table.deleteRow(0);
       if (foundRating) {
-        const ratingCell = rowArray[i].insertCell(4);
+        const ratingCell = rowArray[i].insertCell(insertPos);
         const ratingCellWrapper = document.createElement('div');
         ratingCellWrapper.className = "flex items-center gap-2";
         ratingCell.className =
@@ -82,7 +88,7 @@ const showData = async () => {
         }
       }
       if (foundQuality) {
-        const qualityCell = rowArray[i].insertCell(5);
+        const qualityCell = rowArray[i].insertCell(insertPos + 1);
         const qualityCellWrapper = document.createElement('div');
         qualityCellWrapper.className = "flex items-center justify-between w-12";
         qualityCell.className =
