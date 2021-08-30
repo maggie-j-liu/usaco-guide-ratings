@@ -15,7 +15,7 @@ const initUi = () => {
     //shuffleCheck.className = "border-gray-300 bg-gray-200"
     shuffle.className = "py-4 flex items-center justify-between";
     shuffleText.className = "text-sm font-medium text-gray-500 dark:text-gray-300";
-    shuffleText.appendChild(document.createTextNode("Randomize rows of Problem Lists"));
+    shuffleText.appendChild(document.createTextNode("Problem Lists: Randomize Rows"));
     shuffle.appendChild(shuffleText);
     shuffle.appendChild(shuffleCheckSlider);
     optionsList.appendChild(shuffle);
@@ -32,7 +32,7 @@ const initUi = () => {
     toggleOff(turnOffSlider);
     turnOff.className = "py-4 flex items-center justify-between";
     turnOffText.className = "text-sm font-medium text-gray-500 dark:text-gray-300";
-    turnOffText.appendChild(document.createTextNode("Hide Ratings and Quality"));
+    turnOffText.appendChild(document.createTextNode("Problem Lists: Hide Ratings and Quality"));
     turnOff.appendChild(turnOffText);
     turnOff.appendChild(turnOffSlider);
     optionsList.appendChild(turnOff);
